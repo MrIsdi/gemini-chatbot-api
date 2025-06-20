@@ -13,7 +13,10 @@ app.use(express.static("public"));
 const port = process.env.PORT || 3000;
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+    systemInstruction: "Anda adalah asisten AI yang membantu. Fokus utama Anda adalah untuk membahas topik medis. Harap jaga agar respons Anda tetap berkaitan dengan kesehatan, kedokteran, dan ilmu medis."
+});
 
 app.post("/api/chat", async (req, res)=>{
     const userMessage = req.body.message;

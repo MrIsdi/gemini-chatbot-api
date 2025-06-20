@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function addMessage(sender, text) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', `${sender}-message`);
-        messageElement.innerHTML = `<strong>${sender}:</strong> ${text}`;
+        messageElement.innerHTML = `<p><strong>${sender}:</strong> ${text}</p>`;
         if(sender == "You"){
           messageElement.classList.add("user");
         }else{
